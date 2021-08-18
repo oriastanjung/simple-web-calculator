@@ -1,0 +1,269 @@
+
+
+*{
+    box-sizing: border-box;
+}
+body{
+    font-family: sans-serif;
+}
+.flex-container-column{
+    display: flex;
+    flex-direction: column;
+
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: right;
+}
+
+.flex-container-row{
+    display: flex;
+}
+
+.button{
+    flex-basis: 25%;
+
+    font-size: 1.5em;
+    text-align: center;
+    padding: 40px;
+    border: 1px solid black;
+    background: -webkit-linear-gradient(top,#d2d2d2,#ddd);
+    cursor: pointer;
+}
+.double{
+    flex-basis: 50%;
+}
+
+.display{
+    color: white;
+    width: 100%;
+    background-color: #333333;
+    padding: 10px 20px;
+}
+
+.operator,.equals,.negative{
+    background: orange;
+}
+
+.card{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    padding: 30px;
+    margin-top: 20px;
+}
+
+.button:hover{
+    font-weight: bold;
+}
+/*
+
+Menerapkan styling pada tabel riwayat
+
+Sebelumnya kita sudah membuat elemen tabel yang nantinya akan menjadi tempat 
+informasi riwayat kalkulasi, namun tampilannya masih kurang baik. 
+Kita akan merombaknya dengan menerapkan CSS pada elemen tersebut.
+
+Silakan buka berkas style.css, kemudian tambahkan rule berikut:
+
+.history {
+   width: 80%;
+   margin: 30px auto 0 auto;
+   overflow: scroll;
+}
+
+Rule tersebut akan mengatur lebar 80% dari viewport pada elemen 
+<div> yang menerapkan class history. Kemudian terapkan pada properti overflow 
+dengan nilai scroll sehingga elemen <div> akan memiliki scroll bar secara 
+horizontal dan vertikal.
+*/
+.history{
+    width: 80%;
+    margin: 30px auto 0 auto;
+    overflow: scroll;
+}
+
+/*
+Lalu tambahkan juga rule berikut pada style.css:
+
+table {
+   border-collapse: collapse;
+   border-spacing: 0;
+   width: 100%;
+   border: 1px solid #ddd;
+}
+
+Rule tersebut akan membuat tabel memiliki lebar 100% 
+terhadap parentnya dan menetapkan border pada tepian tabelnya.
+*/
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+/*
+Lanjut kita tambahkan rule berikut untuk mengatur padding pada table head (<th>) 
+dan table data (<td>) agar ukuran tampak lebih proporsional.
+
+th,
+td {
+   text-align: center;
+   padding: 16px;
+}
+
+
+
+*/
+
+th,td {
+    text-align: center;
+    padding: 16px;
+}
+
+/*
+
+Lalu kita tambahkan rule berikut untuk menerapkan backgroud-color pada element <th> 
+dan <tr>, 
+sementara untuk elemen <tr> kita manfaatkan pseudo-class dalam selectornya.
+
+th {
+   background-color: orange;
+   color: white;
+}
+ 
+tr:nth-child(even) {
+   background-color: #d2d2d2;
+}
+
+*/
+
+th {
+    background-color: orange;
+    color: white;
+}
+tr:nth-child(even){
+    background-color: #d2d2d2;
+}
+
+/*
+Untuk mengoptimalkan tampilan pada perangkat seluler, 
+kita atur elemen <div> untuk menerapkan width: 100% pada @media query.
+
+@media screen and (max-width: 513px) {
+   .button {
+       padding: 10px;
+   }
+   .history {
+       width: 100%;
+   }
+}
+
+
+*/
+
+
+
+@media screen and (max-width:513px) {
+
+    .button{
+        padding: 10px;
+    }
+
+    .history{
+        width: 100%;
+    }
+}
+
+
+/*
+
+Sekarang struktur kode pada berkas styles.css akan tampak seperti ini:
+*/
+
+
+/* 
+* {
+   box-sizing: border-box;
+}
+body {
+   font-family: sans-serif;
+}
+.flex-container-column {
+   display: flex;
+   flex-direction: column;
+   max-width: 800px;
+   margin: 0 auto;
+   text-align: right;
+}
+.flex-container-row {
+   display: flex;
+}
+.button {
+   flex-basis: 25%;
+   font-size: 1.5em;
+   text-align: center;
+   padding: 40px;
+   border: 1px solid black;
+   background: -webkit-linear-gradient(top, #d2d2d2, #ddd);
+   cursor: pointer;
+}
+.double {
+   flex-basis: 50%;
+}
+.display {
+   color: white;
+   width: 100%;
+   padding: 10px 20px;
+   background-color: #333333;
+   border: 1px solid black;
+   font-size: 2em;
+}
+.operator,
+.negative,
+.equals {
+   background: orange;
+}
+.card {
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+   border-radius: 5px;
+   padding: 30px;
+   margin-top: 20px;
+}
+.button:hover {
+   font-weight: bold;
+}
+.history {
+   width: 80%;
+   margin: 30px auto 0 auto;
+   overflow: scroll;
+}
+table {
+   border-collapse: collapse;
+   border-spacing: 0;
+   width: 100%;
+   border: 1px solid #ddd;
+}
+th,
+td {
+   text-align: center;
+   padding: 16px;
+}
+th {
+   background-color: orange;
+   color: white;
+}
+tr:nth-child(even) {
+   background-color: #d2d2d2;
+}
+@media screen and (max-width: 513px) {
+ .button {
+       padding: 10px;
+ }
+ .history {
+       width: 100%;
+ }
+}
+Setelah persiapan tampilan table selesai, selanjutnya kita akan mulai menerapkan JavaScript untuk mengelola data riwayat kalkulasinya.
+
+*/
